@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import FriendCard from "./components/FriendCard";
 import Wrapper from "./components/Wrapper";
+import Count from "./components/Count";
 import friends from "./friends.json";
 import "./App.css";
 
@@ -13,24 +14,27 @@ class App extends Component {
   };
 
   removeFriend = id => {
-    //console.log(id);
-    this.state.chosenFriends.push(id);
-    //console.log(this.state.chosenFriends);
-    if (this.state.chosenFriends.indexOf(id) !== -1){
+    if (this.state.chosenFriends.indexOf(id) === -1){
+      this.state.chosenFriends.push(id);
+      console.log("initial count: " + this.state.count);
       this.setState({
         count: this.state.count + 1
       });
-    
+      
     }
-    console.log(this.state.count);
+    
+    
     // Filter this.state.friends for friends with an id not equal to the id being removed
-    const friends = this.state.friends.filter(friend => friend.id !== id);
+    //const friends = this.state.friends.filter(friend => friend.id !== id);
     // Set this.state.friends equal to the new friends array
     this.setState({ friends });
+    console.log("after the condition: " + this.state.count);
   };
 
   render() {
     return (
+      <div>
+      <Count count={this.state.count}></Count>
       <Wrapper>
         {this.state.friends.map(friend => (
           <FriendCard
@@ -45,6 +49,7 @@ class App extends Component {
         ))
         }
       </Wrapper>
+      </div>
     )
 
   }
