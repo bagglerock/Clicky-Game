@@ -57,7 +57,10 @@ class App extends Component {
   render() {
     return (
       <div>
-      <Count count={this.state.count}></Count>
+      <Count 
+        count={this.state.count}
+        streak={this.state.longestStreak}
+      />
       <Wrapper>
         {this.state.friends.map(friend => (
           <FriendCard
