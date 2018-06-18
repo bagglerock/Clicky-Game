@@ -40,10 +40,9 @@ class App extends Component {
       });
     } else  {
       this.state.chosenFriends = [];
-      console.log(this.state.chosenFriends);
       this.setState({
         count: 0,
-        longestStreak: this.state.longestStreak + 1
+        longestStreak: this.state.count
       })
     }
     // Filter this.state.friends for friends with an id not equal to the id being removed
@@ -51,7 +50,6 @@ class App extends Component {
     // Set this.state.friends equal to the new friends array
     this.shuffle(this.state.friends);
     this.setState({ friends });
-    console.log("after the condition: " + this.state.count);
   };
 
   render() {
