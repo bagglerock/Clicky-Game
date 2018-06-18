@@ -15,3 +15,11 @@ This is a simple memory game that is built using React.  Rules are simple.
 <li>Good Luck!</li>
 
 </ul>
+
+## Installation
+
+copy this repo and then use yarn install to install it and it should be good.
+
+## Working example:
+
+https://mysterious-stream-83031.herokuapp.com
